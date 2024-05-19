@@ -45,6 +45,6 @@ export const getUser = async () => {
 }
 
 export const showToast = (message: string) => {
-    ToastAndroid.show(message, ToastAndroid.LONG);
+    ToastAndroid.show(message, ToastAndroid.SHORT);
 }
 
