@@ -94,6 +94,7 @@ const LoginScreen = () => {
           {emailError ? (
             <Text className="text-red-500 text-left mb-3">{emailError}</Text>
           ) : null}
+          
 
           <TextInput
             placeholder="Password"
