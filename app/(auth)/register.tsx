@@ -4,13 +4,10 @@ import {
   Text,
   View,
   Image,
-  TextInput,
   ActivityIndicator,
   ToastAndroid,
-  TouchableOpacity,
-  StyleSheet,
 } from "react-native";
-import { register } from "@/services/main_router";
+import { register } from "@/services/routes";
 import { router } from "expo-router";
 import { getToken, saveToken, getUser } from "@services/helpers";
 import InputWithError from "@components/InputWithError";

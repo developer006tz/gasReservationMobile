@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   ScrollView,
 } from "react-native";
-import { login } from "@/services/main_router";
+import { login } from "@/services/routes";
 import { router } from "expo-router";
 import { getToken, saveToken } from "@services/helpers";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -35,7 +35,8 @@ const LoginScreen = () => {
       if (user.user_type == "supplier") {
         router.push("/screen/supplier_dashboard");
       } else {
-        showToast(`${user.name} Loged in as Customer`);
+        // showToast(`${user.name} Loged in as Customer`);
+        router.push('/home')
       }
     } catch (error: any) {
       setLoading(false);

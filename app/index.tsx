@@ -1,13 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View, ScrollView, Image, TouchableOpacity, ToastAndroid } from "react-native";
-import React from "react";
+import { Text, View, ScrollView, Image } from "react-native";
+import React,{useState,useEffect} from "react";
 import { Redirect, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "@/constants";
-import { showToast } from "@services/helpers";
 import FullButton from "@/components/FullButton";
+import { useGlobalContext } from "../services/GlobalProvider";
 
 const index = () => {
+  const { loading, isLogged } = useGlobalContext();
+  if (!loading && isLogged) return <Redirect href="/home" />;
   return (
     <SafeAreaView className="bg-light h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>

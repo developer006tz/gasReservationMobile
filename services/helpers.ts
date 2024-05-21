@@ -1,9 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ToastAndroid } from 'react-native'
+import { getAuthUser } from "@/services/routes";
 
 export const clearToken = async () => {
     try {
-        await AsyncStorage.removeItem('token')
+        await AsyncStorage.removeItem('token');
+        await AsyncStorage.removeItem("user");
     } catch (error) {
         console.error('Error clearing token', error);
     }
@@ -17,7 +19,6 @@ export const getToken = async () => {
     } catch (error) {
         console.error('Error getting token', error);
         return null;
-
     }
 }
 
@@ -43,6 +44,23 @@ export const getUser = async () => {
         return null;
     }
 }
+
+
+export const checkAuthenticated = async () => {
+  try {
+    const token = await getToken();
+    if (!token) {
+      return null;
+    }
+
+    const response = await getAuthUser(token);
+    return response || null;
+  } catch (error) {
+    await clearToken();
+    console.error("Error checking authentication", error);
+    return null;
+  }
+};
 
 export const showToast = (message: string) => {
     ToastAndroid.show(message, ToastAndroid.SHORT);

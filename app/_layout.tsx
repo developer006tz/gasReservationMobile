@@ -1,6 +1,7 @@
 import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import React, { useEffect, useState } from 'react';
+import GlobalProvider from "../services/GlobalProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -34,23 +35,25 @@ const RootLayout = () => {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#f3f4f6",
-        },
-        headerTintColor: "#0284c7",
-        headerTitleStyle: {
-          fontWeight: "bold",
-          color: "#0284c7",
-        },
-      }}
-    >
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      {/* <Stack.Screen name="/search/[query]" options={{ headerShown: false }} /> */}
-    </Stack>
+    <GlobalProvider>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#f3f4f6",
+          },
+          headerTintColor: "#0284c7",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            color: "#0284c7",
+          },
+        }}
+      >
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="/search/[query]" options={{ headerShown: false }} /> */}
+      </Stack>
+    </GlobalProvider>
   );
 }
 export default RootLayout;
