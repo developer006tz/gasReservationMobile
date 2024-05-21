@@ -22,7 +22,7 @@ const index = () => {
           <View className="relative mt-5 w-full">
             <View className="border-sky-500 bg-primary border rounded-[20px] flex justify-center items-center p-4">
               <Text className="text-light text-[26px] font-bold-200 text-center">
-                Gas Reservation System
+                Multi- Agent gas
               </Text>
             </View>
           </View>
