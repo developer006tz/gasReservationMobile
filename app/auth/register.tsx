@@ -19,8 +19,13 @@ const LoginScreen = () => {
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [phoneError, setPhoneError] = useState('');
-    const [user_typeError, setUserTypeError] = useState('');
+    const [user_typeError, setUserTypeError] = useState<string | null>(null);
     const [passwordError, setPasswordError] = useState('');
+
+    const userTypes = [
+      { label: "Supplier", value: "supplier" },
+      { label: "Customer", value: "client" },
+    ];
 
 
     const showToast = (message: string) => {
@@ -64,65 +69,88 @@ const LoginScreen = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <View >
-                <View style={styles.davinciFlex}>
-                    <Image
-                        source={require('@assets/images/mtungi.png')}
-                        style={{ width: 150, height: 150 }}
-                        resizeMode="contain"
-                    />
-                </View>
-            </View>
-            <View >
-                <Text style={{ fontSize: 22, color: "#0284c7", textAlign: "center", marginBottom: 10 }}>
-                    Gas Reservation Management System
-                </Text>
-            </View>
-            <InputWithError
-                placeholder="Name"
-                value={name}
-                onChangeText={setName}
-                error={nameError}
-                inputStyles="mb-3"
+      <View style={styles.container}>
+        <View>
+          <View style={styles.davinciFlex}>
+            <Image
+              source={require("@assets/images/mtungi.png")}
+              style={{ width: 150, height: 150 }}
+              resizeMode="contain"
             />
-            <TextInput
-                placeholder="Email"
-                style={[styles.input, emailError ? styles.errorInput : null]}
-                value={email}
-                onChangeText={setEmail}
-            />
-            {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
-            <TextInput
-                placeholder="Phone"
-                style={[styles.input, phoneError ? styles.errorInput : null]}
-                value={phone}
-                onChangeText={setPhone}
-            />
-            {phoneError ? <Text style={styles.errorText}>{phoneError}</Text> : null}
-
-            <TextInput
-                placeholder="Password"
-                value={password}
-                style={[styles.input, passwordError ? styles.errorInput : null]}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-            {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
-            <TouchableOpacity style={styles.button} onPress={() => { handleRegister }}>
-                <Text style={styles.buttonText}>Register</Text>
-            </TouchableOpacity>
-            {loading && <ActivityIndicator size="large" color="#0284c7" />}
-            <View style={styles.orContainer}>
-                <Text>-OR-</Text>
-            </View>
-
-            <TouchableOpacity style={styles.buttonOutline} onPress={() => router.push('/')}>
-                <Text style={styles.buttonOutlineText}>Login</Text>
-            </TouchableOpacity>
-
-
+          </View>
         </View>
+        <View>
+          <Text
+            style={{
+              fontSize: 22,
+              color: "#0284c7",
+              textAlign: "center",
+              marginBottom: 10,
+            }}
+          >
+            Gas Reservation Management System
+          </Text>
+        </View>
+        <InputWithError
+          placeholder="Name"
+          value={name}
+          onChangeText={setName}
+          error={nameError}
+          inputStyles="mb-3"
+        />
+        <InputWithError
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+          error={emailError}
+          inputStyles="mb-3"
+        />
+        <InputWithError
+          placeholder="Phone"
+          value={phone}
+          onChangeText={setPhone}
+          error={phoneError}
+          inputStyles="mb-3"
+        />
+
+        <SelectOption
+          label="Select an Option"
+          selectedValue={user_type}
+          onValueChange={(itemValue) => setUserType(itemValue)}
+          options={userTypes}
+          error={user_typeError}
+        />
+
+        <TextInput
+          placeholder="Password"
+          value={password}
+          style={[styles.input, passwordError ? styles.errorInput : null]}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
+        {passwordError ? (
+          <Text style={styles.errorText}>{passwordError}</Text>
+        ) : null}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            handleRegister;
+          }}
+        >
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+        {loading && <ActivityIndicator size="large" color="#0284c7" />}
+        <View style={styles.orContainer}>
+          <Text>-OR-</Text>
+        </View>
+
+        <TouchableOpacity
+          style={styles.buttonOutline}
+          onPress={() => router.push("/")}
+        >
+          <Text style={styles.buttonOutlineText}>Login</Text>
+        </TouchableOpacity>
+      </View>
     );
 }
 
