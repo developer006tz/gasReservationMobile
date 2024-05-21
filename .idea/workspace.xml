@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b43a5579-7210-44d8-a96f-5db91e0f7e6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gasReservation.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/images.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    <list default="true" id="b43a5579-7210-44d8-a96f-5db91e0f7e6e" name="Changes" comment="add new api">
+      <change afterPath="$PROJECT_DIR$/components/InputWithError.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/SelectOption.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/main_router.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,11 +26,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/components/SelectOption.tsx" root0="SKIP_INSPECTION" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
   <component name="ProjectColorInfo"><![CDATA[{
@@ -77,11 +79,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716221902766</updated>
-      <workItem from="1716221906115" duration="4725000" />
+      <workItem from="1716221906115" duration="8155000" />
     </task>
+    <task id="LOCAL-00001" summary="add new api">
+      <option name="closed" value="true" />
+      <created>1716279513218</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716279513218</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add new api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new api" />
   </component>
 </project>

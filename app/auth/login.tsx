@@ -10,13 +10,14 @@ import {
   ToastAndroid,
   TouchableOpacity,
 } from "react-native";
-import { login } from "@/services/routes";
+import { login } from "@/services/main_router";
 import { router } from "expo-router";
 import { getToken, saveToken, getUser } from "@services/helpers";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { showToast } from "@services/helpers";
 import FullButton from "@/components/FullButton";
 import { images } from "@/constants";
+import InputWithError from "@components/InputWithError";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -83,31 +84,20 @@ const LoginScreen = () => {
               Log In
             </Text>
           </View>
-          <TextInput
-            placeholder="Email"
-            className={`${
-              emailError ? " border-red-500 " : " mb-3 border-sky-500"
-            } border  w-full rounded-3xl min-h-[50px] p-3`}
-            value={email}
-            onChangeText={setEmail}
+          <InputWithError
+              placeholder="Email"
+              value={email}
+              onChangeText={setEmail}
+              error={emailError}
+              inputStyles="mb-3"
           />
-          {emailError ? (
-            <Text className="text-red-500 text-left mb-3">{emailError}</Text>
-          ) : null}
-          
-
-          <TextInput
-            placeholder="Password"
-            value={password}
-            className={`${
-              passwordError ? "border border-red-500" : ""
-            } border border-sky-500 w-full rounded-3xl min-h-[50px] p-3`}
-            onChangeText={setPassword}
-            secureTextEntry
+          <InputWithError
+              placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
+              error={passwordError}
+              secureTextEntry
           />
-          {passwordError ? (
-            <Text className="text-red-500">{passwordError}</Text>
-          ) : null}
           <FullButton
             title="Login"
             handlePress={() => handleLogin()}

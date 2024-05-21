@@ -2,19 +2,24 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { Text, View, Image, TextInput, ActivityIndicator, ToastAndroid, TouchableOpacity, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { login } from '@/services/routes';
+import {login, register} from '@/services/main_router';
 import { Link, router } from 'expo-router';
 import { getToken, saveToken, getUser } from '@services/helpers';
+import InputWithError from "@components/InputWithError";
+import FullButton from "@/components/FullButton";
+import SelectOption from "@components/SelectOption";
 
 const LoginScreen = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+    const [user_type, setUserType] = useState('');
     const [loading, setLoading] = useState(false);
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [phoneError, setPhoneError] = useState('');
+    const [user_typeError, setUserTypeError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
 
@@ -24,14 +29,17 @@ const LoginScreen = () => {
 
     const handleRegister = async () => {
         setLoading(true);
+        setNameError('');
         setEmailError('');
         setPhoneError('');
-        setNameError('');
         setPasswordError('');
+        setUserTypeError('');
         try {
-            const response = await login(email, password);
+            const userData = {name,email,password,user_type};
+            const response = await register(userData);
             const { user, access_token } = response;
             await saveToken(access_token, user);
+            const token = await getToken();
             setLoading(false);
             if (user.user_type == 'supplier') {
                 // Navigate to supplier Dashboard
@@ -71,13 +79,13 @@ const LoginScreen = () => {
                     Gas Reservation Management System
                 </Text>
             </View>
-            <TextInput
+            <InputWithError
                 placeholder="Name"
-                style={[styles.input, nameError ? styles.errorInput : null]}
                 value={name}
                 onChangeText={setName}
+                error={nameError}
+                inputStyles="mb-3"
             />
-            {nameError ? <Text style={styles.errorText}>{nameError}</Text> : null}
             <TextInput
                 placeholder="Email"
                 style={[styles.input, emailError ? styles.errorInput : null]}
