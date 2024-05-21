@@ -31,13 +31,13 @@ const index = () => {
           <View className="py-5 w-full">
             <FullButton
               title="Login"
-              handlePress={() => router.push("/auth/login")}
+              handlePress={() => router.push("/login")}
               containerStyles="w-full mt-4"
             />
             <Text className="text-center text-primary text-xl ">-OR-</Text>
             <FullButton
               title="Register"
-              handlePress={() => router.push("/auth/register")}
+              handlePress={() => router.push("/register")}
               containerStyles="w-full"
             />
           </View>

@@ -34,11 +34,11 @@ const fetchApi = async (url: string, options: FetchOptions = {}) => {
 
 // Auth routes
 interface RegisterData {
-    name: string;
-    phone: string;
-    password: string;
-    email: string;
-    user_type: 'supplier' | 'client';
+  name: string;
+  email: string;
+  phone: string;
+  user_type: string;
+  password: string;
 }
 
 interface LoginData {

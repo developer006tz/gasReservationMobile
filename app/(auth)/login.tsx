@@ -1,18 +1,14 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
   Image,
-  TextInput,
   ActivityIndicator,
   ScrollView,
-  ToastAndroid,
-  TouchableOpacity,
 } from "react-native";
 import { login } from "@/services/main_router";
 import { router } from "expo-router";
-import { getToken, saveToken, getUser } from "@services/helpers";
+import { getToken, saveToken } from "@services/helpers";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { showToast } from "@services/helpers";
 import FullButton from "@/components/FullButton";
@@ -73,30 +69,23 @@ const LoginScreen = () => {
             />
           </View>
           <View>
-            <Text
-              style={{
-                fontSize: 22,
-                color: "#0284c7",
-                textAlign: "center",
-                marginBottom: 10,
-              }}
-            >
-              Log In
+            <Text className="color-primary text-center font-psemibold text-[22px]">
+              Login
             </Text>
           </View>
           <InputWithError
-              placeholder="Email"
-              value={email}
-              onChangeText={setEmail}
-              error={emailError}
-              inputStyles="mb-3"
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            error={emailError}
+            inputStyles="mb-3"
           />
           <InputWithError
-              placeholder="Password"
-              value={password}
-              onChangeText={setPassword}
-              error={passwordError}
-              secureTextEntry
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+            error={passwordError}
+            secureTextEntry
           />
           <FullButton
             title="Login"
@@ -111,7 +100,7 @@ const LoginScreen = () => {
 
           <FullButton
             title="Register"
-            handlePress={() => router.push("/auth/register")}
+            handlePress={() => router.push("/register")}
             containerStyles="w-full mt-2"
           />
         </View>

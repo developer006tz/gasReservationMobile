@@ -19,7 +19,7 @@ const FullButton: React.FC<FullButtonProps> = ({
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
-      className={`border text-xl border-sky-500 min-h-[62px] justify-center rounded-[20px] my-2 ${containerStyles} 
+      className={`border text-xl border-sky-500 min-h-[62px] justify-center rounded-[20px] ${containerStyles} 
       ${isLoading ? "opacity-50" : ""}`}
       disabled={isLoading}
     >

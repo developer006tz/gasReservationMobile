@@ -37,16 +37,19 @@ const RootLayout = () => {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#f3f4f6',
+          backgroundColor: "#f3f4f6",
         },
-        headerTintColor: '#0284c7',
+        headerTintColor: "#0284c7",
         headerTitleStyle: {
-          fontWeight: 'bold',
-          color: '#0284c7'
+          fontWeight: "bold",
+          color: "#0284c7",
         },
-      }}>
-      {/* Optionally configure static options outside the route.*/}
+      }}
+    >
       <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      {/* <Stack.Screen name="/search/[query]" options={{ headerShown: false }} /> */}
     </Stack>
   );
 }
