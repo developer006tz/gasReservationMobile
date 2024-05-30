@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ToastAndroid } from 'react-native'
-import { getAuthUser } from "@/services/routes";
+import { getAuthUser,logout } from "@/services/routes";
 
 export const clearToken = async () => {
     try {
@@ -42,6 +42,20 @@ export const getUser = async () => {
     } catch (error) {
         console.error('Error retrieving user data:', error);
         return null;
+    }
+}
+
+export const logoutUser = async () => {
+    try{
+        const token = await getToken();
+        if (token) {
+            await logout(token);
+            await clearToken();
+            return true;
+        }
+    }catch(error){
+        console.error('Error logging out user:', error);
+        return false;
     }
 }
 
